@@ -27,10 +27,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x project_files/gradlew
 
-    - name: Build APK
+    - - name: Build APK
       run: |
         cd project_files
-        gradle assembleDebug
+        gradle wrapper --gradle-version 8.0
+        ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
